@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>NFL Play</title>
+
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/style.css') }}">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <!-- Navigation Section -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="nav1">
+      <a href="#"><span class="a">&nbsp;</span></a>
+      <a class="navbar-brand navbar-inverse active" href="/">Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+        aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse pull-right" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+        </ul>
+
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/injuries"><i class="fas fa-user-injured"></i> Injuries</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/weather"><i class="fas fa-cloud-sun-rain"></i> Weather</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/teamstats"><i class="fas fa-table"></i> Team Statsistics</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="jumbotron">
+    <!-- Placeholder -->
+  </div>
+
+  <div class="container" style="margin-top: 60px">
+
+    <div class="row">
+      <div class="col-md-12">
+        <h3>NFL Draft Picks by Position</h3>
+      </div>
+      <div class="col-md-12">
+        <div class="panel-body">
+          <form>
+            <div class="form-group">
+              <select id="selSeason" onchange="optionChangedSeason1(this.value)"></select>
+              <select id="selSeason2" onchange="optionChangedSeason2(this.value)"></select>
+              <select id="teamSelect" onchange="optionChangedTeam(this.value)"></select>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div id="field_chart" class="col-md-12"></div>
+      </div>
+    </div>
+
+    <div class="row row-grid">
+
+      <div id="about" class="well">
+        <h3>About</h3>
+        <p>This interactive chart attempts to visually show all the draft picks for a particular team from 1990 - 2019.
+        </p>
+
+        <h4>History of the NFL Draft</h4>
+        <p>The National Football League Draft, also called the NFL Draft or the Player Selection Meeting, is an annual
+          event which serves as the league's most common source of player recruitment. Each team is given a position in
+          the drafting order in reverse order relative to its record in the previous year, which means that the last
+          place
+          team is positioned first. From this position, the team can either select a player or trade their position to
+          another team for other draft positions, a player or players, or any combination thereof. The round is complete
+          when each team has either selected a player or traded its position in the draft.</p>
+
+        <p>Certain aspects of the draft, including team positioning and the number of rounds in the draft, have been
+          revised since its creation in 1936, but the fundamental method has remained the same. Currently the draft
+          consists of seven rounds. The original rationale in creating the draft was to increase the competitive parity
+          between the teams as the worst team would, ideally, be able to choose the best player available. In the early
+          years of the draft, players were chosen based on hearsay, print media, or other rudimentary evidence of
+          ability.
+          In the 1940s, some franchises began employing full-time scouts. The ensuing success of these teams eventually
+          forced the other franchises to also hire scouts.</p>
+
+        <p>Colloquially, the name of the draft each year takes on the form of the NFL season in which players picked
+          could
+          begin playing. For example, the 2010 NFL draft was for the 2010 NFL season. However, the NFL-defined name of
+          the
+          process has changed since its inception. The location of the draft has continually changed over the years to
+          accommodate more fans, as the event has gained popularity. The draft's popularity now garners prime-time
+          television coverage. In the league's early years, from the mid-1930s to the mid-1960s, the draft was held in
+          various cities with NFL franchises until the league settled on New York City starting in 1965, where it
+          remained
+          for fifty years until 2015. The 2015 and 2016 NFL drafts were held in Chicago, while the 2017 version was held
+          in Philadelphia and 2018 in Dallas. The 2019 NFL Draft was held in Nashville and the 2020 NFL Draft will be in
+          Las Vegas. In recent years, the NFL draft has occurred in late April or early May.</p>
+
+        <p>“National Football League Draft.” Wikipedia, Wikimedia Foundation, 1 June 2019,
+          en.wikipedia.org/wiki/National_Football_League_Draft.</p>
+
+        </p>
+        </ul>
+        <h4><a
+            href="https://www.reddit.com/r/NFLstatheads/comments/bmrwgp/i_scraped_a_bunch_of_nfl_data_from_2002_through/"
+            target="_blank">Data Source</a></h4>
+        <p>
+          Built with: <a href="http://d3js.org/" target="_blank">D3.js</a><br></p>
+        <p>This project is for educational purposes, I do not own the NFL or its affiliated teams or logos. Teams and
+          Logos are copyright of the NFL</p>
+        Github: <a href="https://github.com/upwager/NFL_Play_HeatMap" target="_blank">NFL_Play_HeatMap</a><br>
+
+      </div>
+    </div>
+  </div><!-- End Container -->
+
+  <!-- Footer Section -->
+  <div class="footer fixed-bottom navbar-dark bg-dark text-white-50">
+    &copy; Copyright Bootcamp 2019 (Educational)
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+  <script src="{{ url_for('static', filename='../static/js/app.js') }}"></script>
+
+
+</body>
+
+</html>

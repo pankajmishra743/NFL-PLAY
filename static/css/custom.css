@@ -1,0 +1,53 @@
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+div.tooltip {	
+  position: absolute;			
+  text-align: center;			
+  width: 120px;					
+  height: 50px;					
+  padding: 2px;				
+  font: 12px sans-serif;
+  color: white;		
+  background:black;
+  border: 0px;		
+  border-radius: 8px;			
+  pointer-events: none;			
+}
+
+.axis-text {
+  font-family: sans-serif;
+  font-weight: bold;
+  fill: #551aaf;
+  color: black;
+  text-anchor: middle;
+}
+
+.active {
+  font-weight: bold;
+  fill: #000;
+  fill: #551aaf;
+  transition: fill 0.3s ease-out;
+  text-anchor: middle;
+}
+
+.inactive {
+  font-weight: lighter;
+  fill: #551aaf;
+  transition: fill 0.3s ease-out;
+  text-anchor: middle;
+}
+
+.svg-box {
+  border: #6b5fb4;
+}
+
+.inactive:hover {
+  fill: #e75480;
+  cursor: pointer;
+}
